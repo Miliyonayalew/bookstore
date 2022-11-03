@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # BookStore
- The Bookstore is a website similar to the "Awesome Books" website. I created an MVP version of it that allows to:
+ The Bookstore is a website similar to the ["Awesome Books"](https://github.com/Miliyonayalew/Awesome-Book-Es6) previous website. I created an MVP version of it that allows to:
 - Add a book
 - Display a list of books
 - Remove a selected book

@@ -7,7 +7,7 @@ const Books = () => {
     { title: 'The Hunger Games', author: 'Suzanne Collins' },
     { title: 'Dune', author: 'Frank Herbert' },
     { title: 'Capital in the Twenty-First Century', author: 'Suzanne Collins' },
-  ]);
+  ]); // used for testing on the display
 
   return (
     <div>
