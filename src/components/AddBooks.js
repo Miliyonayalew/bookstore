@@ -11,13 +11,14 @@ const AddBooks = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(
-      addBook({
-        id: uuidv4(),
-        title,
-        author,
-      }),
-    );
+    const newBook = {
+      id: uuidv4(),
+      title,
+      author,
+    };
+
+    dispatch(addBook(newBook));
+
     setTitle('');
     setAuthor('');
   };
