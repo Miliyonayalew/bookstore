@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from '../components/Book';
 import AddBooks from '../components/AddBooks';
 
 const Books = () => {
-  const [books, setBooks] = useState([
-    { title: 'The Hunger Games', author: 'Suzanne Collins' },
-    { title: 'Dune', author: 'Frank Herbert' },
-    { title: 'Capital in the Twenty-First Century', author: 'Suzanne Collins' },
-  ]); // used for testing on the display
+  const books = useSelector((state) => state.books);
 
   return (
     <div>
@@ -15,13 +12,15 @@ const Books = () => {
       <ul>
         {books.map((book) => (
           <Book
-            key={book.toString()}
+            id={book.id}
+            key={book.id}
+            book={book}
             title={book.title}
             author={book.author}
           />
         ))}
       </ul>
-      <AddBooks books={books} setBooks={setBooks} />
+      <AddBooks />
     </div>
   );
 };

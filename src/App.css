@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+* {
+  padding-left: 0.5rem;
+}
+
+* li {
+  list-style: none;
+}

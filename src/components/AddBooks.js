@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/books';
 
-const AddBooks = (props) => {
-  const { setBooks, books } = props;
+const AddBooks = () => {
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
-      title,
-      author,
-    };
-    setBooks([...books, newBook]);
+    dispatch(
+      addBook({
+        id: uuidv4(),
+        title,
+        author,
+      }),
+    );
     setTitle('');
     setAuthor('');
   };
@@ -21,7 +25,7 @@ const AddBooks = (props) => {
   return (
     <div>
       <h2>Add new book</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => addBook(e)}>
         <input
           type="text"
           placeholder="Book title"
@@ -34,15 +38,10 @@ const AddBooks = (props) => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <button type="submit">Add Book</button>
+        <button type="submit" onClick={(e) => handleSubmit(e)}>Add Book</button>
       </form>
     </div>
   );
-};
-
-AddBooks.propTypes = {
-  setBooks: PropTypes.func.isRequired,
-  books: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default AddBooks;
