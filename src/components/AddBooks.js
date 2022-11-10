@@ -15,6 +15,7 @@ const AddBooks = () => {
       id: uuidv4(),
       title,
       author,
+      category: 'book',
     };
 
     dispatch(addBook(newBook));
@@ -26,20 +27,22 @@ const AddBooks = () => {
   return (
     <div>
       <h2>Add new book</h2>
-      <form onSubmit={(e) => addBook(e)}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Book title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <input
           type="text"
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          required
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}>Add Book</button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
