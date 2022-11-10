@@ -8,6 +8,7 @@ const AddBooks = () => {
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,20 +16,22 @@ const AddBooks = () => {
       id: uuidv4(),
       title,
       author,
-      category: 'book',
+      category,
     };
 
     dispatch(addBook(newBook));
 
     setTitle('');
     setAuthor('');
+    setCategory('');
   };
 
   return (
-    <div>
+    <div className="form-section">
       <h2>Add new book</h2>
       <form onSubmit={handleSubmit}>
         <input
+          className="add-book-input"
           type="text"
           placeholder="Book title"
           value={title}
@@ -36,12 +39,23 @@ const AddBooks = () => {
           required
         />
         <input
+          className="author-input"
           type="text"
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           required
         />
+        <select className="category-input" onChange={(e) => setCategory(e.target.value)}>
+          <option value="Book">Book</option>
+          <option value="Action">Action</option>
+          <option value="Biography">Biography</option>
+          <option value="History">History</option>
+          <option value="Horror">Horror</option>
+          <option value="Economy">Economy</option>
+          <option value="Learning">Learning</option>
+          <option value="Science-Fiction">Sci-Fi</option>
+        </select>
         <button type="submit">Add Book</button>
       </form>
     </div>
