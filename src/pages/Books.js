@@ -13,8 +13,7 @@ const Books = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Books</h1>
+    <div className="books-container">
       <ul>
         {books.map((book) => (
           <Book
@@ -23,9 +22,11 @@ const Books = () => {
             book={book}
             title={book.title}
             author={book.author}
+            category={book.category}
           />
         ))}
       </ul>
+      <div className="horizontal-divide" />
       <AddBooks />
     </div>
   );

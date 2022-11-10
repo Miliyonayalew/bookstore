@@ -11,14 +11,14 @@
 - HTML5
 - Linters
 - GitFlow
+- Redux
   
 ## Website Mockup 📱 💻 🖥️
 Not available :smile:
 ![]()
 
-
 ## Live Demo 
-Not available :smile:
+[Click Here](https://jocular-cannoli-fd8ef7.netlify.app/)
 
 ## Getting Started
 To get a local copy up run the following steps.
